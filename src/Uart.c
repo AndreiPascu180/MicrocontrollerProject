@@ -81,6 +81,14 @@ void UART0_IRQHandler(void) {
 
 		if(UART0->S1 & UART0_S1_RDRF_MASK) {
 			sens = UART0->D;
+			sens = (uint8_t)((sens & 0x01) << 7) |
+         (uint8_t)((sens & 0x02) << 5) |
+         (uint8_t)((sens & 0x04) << 3) |
+         (uint8_t)((sens & 0x08) << 1) |
+         (uint8_t)((sens & 0x10) >> 1) |
+         (uint8_t)((sens & 0x20) >> 3) |
+         (uint8_t)((sens & 0x40) >> 5) |
+         (uint8_t)((sens & 0x80) >> 7);
 		}
 			UART0->S1 &= ~UART0_S1_RDRF_MASK;
 }

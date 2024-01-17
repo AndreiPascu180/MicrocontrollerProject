@@ -62,60 +62,59 @@ void PIT_IRQHandler(void) {
 		
 		if(sens==0){
 			switch (state) {
-				
-							case 0:
-									/* Alb */
-									GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
-									GPIOB->PCOR |= (1<< SEQ_GREEN_LED_PIN);
-									GPIOD->PCOR |= (1<< SEQ_BLUE_LED_PIN);
-									break;
-							case 1:
-									/* Magenta */
-									GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
-									GPIOB->PSOR |= (1<< SEQ_GREEN_LED_PIN);
-									GPIOD->PCOR |= (1<< SEQ_BLUE_LED_PIN);
-									break;
-							case 2:
-									/* Galben */
-									GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
-									GPIOB->PCOR |= (1<< SEQ_GREEN_LED_PIN);
-									GPIOD->PSOR |= (1<< SEQ_BLUE_LED_PIN);
-									break;
-							case 3:
-									/* Stins */
-									GPIOB->PSOR |= (1 << SEQ_RED_LED_PIN);
-									GPIOB->PSOR |= (1 << SEQ_GREEN_LED_PIN);
-									GPIOD->PSOR |= (1 << SEQ_BLUE_LED_PIN);
-									break;
-					}
+				case 0:
+					/* Alb */
+					GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
+					GPIOB->PCOR |= (1<< SEQ_GREEN_LED_PIN);
+					GPIOD->PCOR |= (1<< SEQ_BLUE_LED_PIN);
+					break;
+				case 1:
+					/* Magenta */
+					GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
+					GPIOB->PSOR |= (1<< SEQ_GREEN_LED_PIN);
+					GPIOD->PCOR |= (1<< SEQ_BLUE_LED_PIN);
+					break;
+				case 2:
+					/* Galben */
+					GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
+					GPIOB->PCOR |= (1<< SEQ_GREEN_LED_PIN);
+					GPIOD->PSOR |= (1<< SEQ_BLUE_LED_PIN);
+					break;
+				case 3:
+					/* Stins */
+					GPIOB->PSOR |= (1 << SEQ_RED_LED_PIN);
+					GPIOB->PSOR |= (1 << SEQ_GREEN_LED_PIN);
+					GPIOD->PSOR |= (1 << SEQ_BLUE_LED_PIN);
+					break;
 			}
+		}
 		if(sens==1)
 		{	
 			switch (state) {
-            case 3:
-                /* Alb */
-								GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
-								GPIOB->PCOR |= (1<< SEQ_GREEN_LED_PIN);
-								GPIOD->PCOR |= (1<< SEQ_BLUE_LED_PIN);
-                break;
-            case 2:
-                /* Magenta */
-								GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
-								GPIOB->PSOR |= (1<< SEQ_GREEN_LED_PIN);
-								GPIOD->PCOR |= (1<< SEQ_BLUE_LED_PIN);
-                break;
-            case 1:
-                /* Galben */
-								GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
-								GPIOB->PCOR |= (1<< SEQ_GREEN_LED_PIN);
-								GPIOD->PSOR |= (1<< SEQ_BLUE_LED_PIN);
-                break;
-            case 0:
-                /* Stins */
-                GPIOB->PSOR |= (1 << SEQ_RED_LED_PIN);
-								GPIOB->PSOR |= (1 << SEQ_GREEN_LED_PIN);
-								GPIOD->PSOR |= (1 << SEQ_BLUE_LED_PIN);
-                break;
+				case 3:
+					/* Alb */
+					GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
+					GPIOB->PCOR |= (1<< SEQ_GREEN_LED_PIN);
+					GPIOD->PCOR |= (1<< SEQ_BLUE_LED_PIN);
+					break;
+				case 2:
+          /* Magenta */
+					GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
+					GPIOB->PSOR |= (1<< SEQ_GREEN_LED_PIN);
+					GPIOD->PCOR |= (1<< SEQ_BLUE_LED_PIN);
+          break;
+        case 1:
+          /* Galben */
+					GPIOB->PCOR |= (1<< SEQ_RED_LED_PIN);
+					GPIOB->PCOR |= (1<< SEQ_GREEN_LED_PIN);
+					GPIOD->PSOR |= (1<< SEQ_BLUE_LED_PIN);
+          break;
+				case 0:
+          /* Stins */
+          GPIOB->PSOR |= (1 << SEQ_RED_LED_PIN);
+					GPIOB->PSOR |= (1 << SEQ_GREEN_LED_PIN);
+					GPIOD->PSOR |= (1 << SEQ_BLUE_LED_PIN);
+          break;
         }
 			}
 		PIT->CHANNEL[1].TFLG &= PIT_TFLG_TIF_MASK;
